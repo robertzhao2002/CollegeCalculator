@@ -7,8 +7,12 @@ collegedict = {}
 for i in range(len(colleges)):
     collegedict[colleges[i]] = i
 
+'''
 college = 'MIT'
 decision = Decision(collegedict[college], f, c)
+'''
+college = int(input())
+decision = Decision(college, f, c)
 
 
 if decision:
