@@ -11,11 +11,12 @@ for i in range(len(colleges)):
 college = 'MIT'
 decision = Decision(collegedict[college], f, c)
 '''
-college = int(input())
-decision = Decision(college, f, c)
+for i in range(len(colleges)):
+    decision = Decision(i, f, c)
+    if decision:
+        print('Accepted! Congrats!')
+    else:
+        print('Rejected! Maybe next time!')
 
 
-if decision:
-    print('Accepted! Congrats!')
-else:
-    print('Rejected! Maybe next time!')
+

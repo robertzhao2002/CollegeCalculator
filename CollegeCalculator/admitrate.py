@@ -7,6 +7,7 @@ probs = [0.45, 0.15, 0.15, 0.1, 0.05, 0.05, 0.05]
 def Decision(college, exceldict, columns):
     name = exceldict['College'][college]
     print(name)
+    input(name + "'s decision has been released! Press enter to find out!")
     chance = 0
     for i in range(1, len(exceldict.keys())):
             random_num = random.random()
