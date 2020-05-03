@@ -1,5 +1,5 @@
 The final percentage is calculated by 45% GPA + SAT, 15% based on the actual acceptance rate on Google, 15% based on your Race/Ethnicity,
-10% Gender, 5% Pure Luck, 5% First Generation, and 5% Alumni.
+10% Gender, 10% Pure Luck (Accounts for Essays, EC, Teacher Recommendations), 5% First Generation, and 5% Alumni.
 
 GPA+SAT Percentages
 The GPA+SAT Percentages were from niche.com; my unweighted GPA was a 3.88 and my SAT was a 1550. The percentage means the proportion of 

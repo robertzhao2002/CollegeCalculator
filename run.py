@@ -1,5 +1,5 @@
 from CollegeCalculator import exceldict, columns
-from CollegeCalculator.admitrate import Decision
+from CollegeCalculator.admitrate import Decision, averageProbability
 f = exceldict
 c = columns
 colleges = f['College']
@@ -13,10 +13,15 @@ decision = Decision(collegedict[college], f, c)
 '''
 for i in range(len(colleges)):
     decision = Decision(i, f, c)
-    if decision:
+    average = averageProbability(i, f, c)
+    print('Average chance for this school is: ', average)
+    if decision < 0:
         print('Accepted! Congrats!')
     else:
-        print('Rejected! Maybe next time!')
+        if decision < 0.06:
+            print('Waitlisted!')
+        else:
+            print('Rejected! Maybe next time!')
 
 
 

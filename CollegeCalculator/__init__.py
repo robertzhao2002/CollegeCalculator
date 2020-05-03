@@ -6,17 +6,19 @@ import random
 filename = 'CollegeCalculator/Colleges.xlsx'
 df = pd.read_excel(filename)
 num_rows = df.shape
-
+columns = df.columns
+columnlist = list(columns)
+luck_index = columnlist.index('Pure Luck (10%)')
 book = load_workbook(filename)
 for wks in book.worksheets:
     for i in range(2, num_rows[0]+2):
         luck = random.random()*4+1
-        wks.cell(row=i, column=6).value = 1/luck
+        wks.cell(row=i, column=luck_index+1).value = 1/luck
 book.save(filename)
 book.close
 
 
-columns = df.columns
+
 
 exceldict = {
 
