@@ -5,7 +5,7 @@ import random
 import numpy
 
 probs = [0.40, 0.15, 0.15, 0.1, 0.1, 0.05, 0.05]
-subjective_categories = ['Race/Ethnicity (15%)', 'Gender (10%)', 'Pure Luck (10%)']
+in_state = ['Rutgers', 'TCNJ', 'Montclair State']
 def Decision(college, exceldict, columns):
     name = exceldict['College'][college]
     print(name)
@@ -23,6 +23,9 @@ def Decision(college, exceldict, columns):
     if name == 'RPI':
         chance+=0.05
         print('RPI Medal: +5%')
+    if name in in_state:
+        chance+=0.23
+        print('In-state: +23%')
     print(chance)
     decider = random.random()
     print(decider)
@@ -38,7 +41,9 @@ def averageProbability(college, exceldict, columns):
             college_chance = numpy.log(5)/4            
         average += probs[i-1]*college_chance
     if name == 'RPI':
-        average+=0.05  
+        average+=0.05
+    if name in in_state:
+        average+=0.23  
     return average
 
 '''
