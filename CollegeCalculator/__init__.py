@@ -1,6 +1,6 @@
 import pandas as pd
 from openpyxl import load_workbook
-import random
+import secrets
 
 
 filename = 'CollegeCalculator/Colleges.xlsx'
@@ -12,7 +12,7 @@ luck_index = columnlist.index('Pure Luck (10%)')
 book = load_workbook(filename)
 for wks in book.worksheets:
     for i in range(2, num_rows[0]+2):
-        luck = random.random()*4+1
+        luck = secrets.SystemRandom().random()*4+1
         wks.cell(row=i, column=luck_index+1).value = 1/luck
 book.save(filename)
 book.close
