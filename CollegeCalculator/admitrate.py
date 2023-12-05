@@ -1,8 +1,8 @@
 from urllib.request import urlopen, Request
 from bs4 import BeautifulSoup
 import requests
-import random
 import numpy
+import secrets
 
 probs = [0.40, 0.15, 0.15, 0.1, 0.1, 0.05, 0.05]
 in_state = ['Rutgers', 'TCNJ', 'Montclair State']
@@ -12,13 +12,13 @@ def Decision(college, exceldict, columns):
     input(name + "'s decision has been released! Press enter to find out!")
     chance = 0
     for i in range(1, len(exceldict.keys())):
-        random_num = random.random()
+        random_num = secrets.SystemRandom().random()
         college_chance = exceldict[columns[i]][college]
         print(columns[i]+':', 'Random', str(random_num)+';', 'College Prob', college_chance)
         if random_num < college_chance:              
             chance+=probs[i-1]
         else:
-            random_2 = random.random()*0.2
+            random_2 = secrets.SystemRandom().random()*0.2
             chance+=probs[i-1]*(random_2)
     if name == 'RPI':
         chance+=0.05
@@ -27,7 +27,7 @@ def Decision(college, exceldict, columns):
         chance+=0.23
         print('In-state: +23%')
     print(chance)
-    decider = random.random()
+    decider = secrets.SystemRandom().random()
     print(decider)
     return decider-chance
 
@@ -35,7 +35,7 @@ def averageProbability(college, exceldict, columns):
     name = exceldict['College'][college]
     average = 0
     for i in range(1, len(exceldict.keys())):
-        random_num = random.random()
+        random_num = secrets.SystemRandom().random()
         college_chance = exceldict[columns[i]][college]
         if columns[i] == 'Pure Luck (10%)':
             college_chance = numpy.log(5)/4            
